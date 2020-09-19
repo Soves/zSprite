@@ -1,0 +1,1 @@
+sprite.draw(x,y,z, 0);

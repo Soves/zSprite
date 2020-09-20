@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "zSprite",
+    "path": "folders/zSprite.yy",
   },
   "resourceVersion": "1.0",
   "name": "zSprites",

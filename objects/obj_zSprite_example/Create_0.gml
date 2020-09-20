@@ -1,7 +1,6 @@
 alphaQueue = new zSpriteAlphaQueue();
 
 sprite = new zSprite(sprite_index);
-sprite2 = new zSprite(spr_tall);
 
 batch = new zSpriteBatch( sprite_index, 1);
 batch.push(x,y,0);

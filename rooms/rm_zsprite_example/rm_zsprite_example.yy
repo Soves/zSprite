@@ -14,10 +14,10 @@
   ],
   "layers": [
     {"instances":[
-        {"properties":[],"isDnd":false,"objectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":800.0,"y":352.0,"resourceVersion":"1.0","name":"inst_46420F82","tags":[],"resourceType":"GMRInstance",},
-        {"properties":[],"isDnd":false,"objectId":{"name":"obj_test","path":"objects/obj_test/obj_test.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":448.0,"y":384.0,"resourceVersion":"1.0","name":"inst_2FB6BCC8","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"obj_zSprite_player","path":"objects/obj_zSprite_player/obj_zSprite_player.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":800.0,"y":352.0,"resourceVersion":"1.0","name":"inst_46420F82","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"obj_zSprite_example","path":"objects/obj_zSprite_example/obj_zSprite_example.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":448.0,"y":384.0,"resourceVersion":"1.0","name":"inst_2FB6BCC8","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Instances","tags":[],"resourceType":"GMRInstanceLayer",},
-    {"tilesetId":{"name":"til_tile","path":"tilesets/til_tile/til_tile.yy",},"x":0,"y":0,"tiles":{"SerialiseWidth":22,"SerialiseHeight":12,"TileSerialiseData":[
+    {"tilesetId":null,"x":0,"y":0,"tiles":{"SerialiseWidth":22,"SerialiseHeight":12,"TileSerialiseData":[
 2147483648,2147483648,2147483648,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147483648,
 2147483648,2147483648,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,2147483648,
 2147483648,2147483648,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,2147483648,
@@ -37,8 +37,8 @@
   "creationCodeFile": "",
   "inheritCode": false,
   "instanceCreationOrder": [
-    {"name":"inst_2FB6BCC8","path":"rooms/Room1/Room1.yy",},
-    {"name":"inst_46420F82","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_2FB6BCC8","path":"rooms/rm_zsprite_example/rm_zsprite_example.yy",},
+    {"name":"inst_46420F82","path":"rooms/rm_zsprite_example/rm_zsprite_example.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
@@ -62,11 +62,11 @@
     "PhysicsWorldPixToMetres": 0.1,
   },
   "parent": {
-    "name": "Rooms",
-    "path": "folders/Rooms.yy",
+    "name": "zSprite_example",
+    "path": "folders/zSprite/zSprite_example.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Room1",
+  "name": "rm_zsprite_example",
   "tags": [],
   "resourceType": "GMRoom",
 }

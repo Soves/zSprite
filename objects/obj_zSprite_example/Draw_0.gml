@@ -8,3 +8,5 @@ sprite.drawAlpha( x-5+100, y+20,(sin(current_time*0.01)-1)*30, 0, alphaQueue);
 batch.draw(0,0,0);
 
 alphaQueue.draw();
+
+layer_depth(layer_get_id("Tiles_1"), -32);

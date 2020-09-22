@@ -5,6 +5,7 @@ sprite = new zSprite(sprite_index);
 batch = new zSpriteBatch( sprite_index, 1);
 batch.push(x,y,0);
 batch.push(x+100,y,0);
+batch.freeze();
 
 // Camera
 camera  = view_camera[0];

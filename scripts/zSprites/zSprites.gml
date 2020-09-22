@@ -28,6 +28,8 @@ function zSpriteSubImage(sprite, subimg, xoffset, yoffset, zoffset, freeze) cons
 		y : sprite_get_yoffset(sprite)
 	}
 	
+	matrix = matrix_build(0, 0, 0, 0, 0, 0, 1, 1, 1);
+	
 	vertex_begin(vertexBuffer, global.zSpriteFormat);
 	
 		//t1
@@ -70,14 +72,11 @@ function zSpriteSubImage(sprite, subimg, xoffset, yoffset, zoffset, freeze) cons
 	//functions
 	static draw = function(x,y,z){
 		
-		var _mat = matrix_build(x, y+z, z, 0, 0, 0, 1, 1, 1);
-		
-		matrix_stack_push(_mat);
-		matrix_set(matrix_world, matrix_stack_top());
-		
+		matrix[12] = x;
+		matrix[13] = y+z;
+		matrix[14] = z;
+		matrix_set(matrix_world, matrix);
 		vertex_submit(vertexBuffer, pr_trianglelist, texture);
-		
-		matrix_stack_pop();
 		matrix_set(matrix_world, matrix_stack_top());
 		
 	}
@@ -127,37 +126,42 @@ function zSprite(sprite) constructor{
 
 function zSpriteAlphaQueue() constructor{
 	
-	stack = [];
-	cachedSize = 0;
-	cachePos = 0;
+	stack = ds_stack_create();
 	
 	static push = function(zsprite, x, y, z, subimg){
-		stack[cachePos] = [zsprite, x, y, z, subimg];
-		cachePos++;
+		
+		ds_stack_push(stack, x);
+		ds_stack_push(stack, y);
+		ds_stack_push(stack, z);
+		ds_stack_push(stack, subimg);
+		ds_stack_push(stack, zsprite);
+		
 	}
 	
 	static draw = function(){
 		
-		cachedSize = array_length(stack);
-		
 		gpu_set_zwriteenable(false);
-		var _i = 0;
-		repeat(cachedSize){
-			
-			if stack[_i] != undefined{
-				stack[_i][0].draw(
-					stack[_i][1],
-					stack[_i][2],
-					stack[_i][3],
-					stack[_i][4]
+		var _spr;
+		while(!ds_stack_empty(stack)){
+			_spr = ds_stack_pop(stack);
+			if _spr != undefined{
+				_spr.draw(
+					ds_stack_pop(stack),
+					ds_stack_pop(stack),
+					ds_stack_pop(stack),
+					ds_stack_pop(stack)
 				);
+			}else{
+				repeat(4) ds_stack_pop(stack)
 			}
-			_i++;
 		}
-		stack = array_create(cachedSize, undefined);
-		cachePos = 0;
 		
 		gpu_set_zwriteenable(true);
+	}
+	static destroy = function(){
+		ds_stack_destroy(stack);
+		var _slf = self;
+		delete _slf;
 	}
 
 }
@@ -170,6 +174,8 @@ function zSpriteBatch(sprite, subimg) constructor{
 	self.subimg = subimg;
 	texture = sprite_get_texture(sprite, subimg);
 
+	matrix = matrix_build(0, 0, 0, 0, 0, 0, 1, 1, 1);
+	
 	static push = function(x,y,z){
 		
 		var _zspritesub = new zSpriteSubImage(sprite, subimg, x, y, z, false);
@@ -185,16 +191,17 @@ function zSpriteBatch(sprite, subimg) constructor{
 		
 	}
 	
+	static freeze = function(){
+		vertex_freeze(vBuffer);
+	}
+	
 	static draw = function(x,y,z){
-		
-		var _mat = matrix_build(x, y+z, z, 0, 0, 0, 1, 1, 1);
-		
-		matrix_stack_push(_mat);
-		matrix_set(matrix_world, matrix_stack_top());
-		
+			
+		matrix[12] = x;
+		matrix[13] = y+z;
+		matrix[14] = z;
+		matrix_set(matrix_world, matrix);
 		vertex_submit(vBuffer, pr_trianglelist, texture);
-		
-		matrix_stack_pop();
 		matrix_set(matrix_world, matrix_stack_top());
 		
 	}

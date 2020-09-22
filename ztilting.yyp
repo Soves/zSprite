@@ -5,6 +5,8 @@
     {"id":{"name":"spr_zSprite_player","path":"sprites/spr_zSprite_player/spr_zSprite_player.yy",},"order":3,},
     {"id":{"name":"obj_zSprite_player","path":"objects/obj_zSprite_player/obj_zSprite_player.yy",},"order":1,},
     {"id":{"name":"spr_zSprite_test","path":"sprites/spr_zSprite_test/spr_zSprite_test.yy",},"order":4,},
+    {"id":{"name":"spr_zSprite_tileset","path":"sprites/spr_zSprite_tileset/spr_zSprite_tileset.yy",},"order":5,},
+    {"id":{"name":"til_zSprite_tileset","path":"tilesets/til_zSprite_tileset/til_zSprite_tileset.yy",},"order":6,},
     {"id":{"name":"rm_zsprite_example","path":"rooms/rm_zsprite_example/rm_zsprite_example.yy",},"order":0,},
   ],
   "Options": [
